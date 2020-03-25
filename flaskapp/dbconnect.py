@@ -7,6 +7,14 @@ cursor = db.cursor()
 
 cursor.execute("DESC main")
 
+# # Uploading to database
+# data = pd.read_csv("info.csv")
+# for i in range(36):
+# 	query = f"insert into main values ('{data.iloc[i][0]}', '{data.iloc[i][2]}', '{data.iloc[i][3]}', '{data.iloc[i][1]}', '{data.iloc[i][4]}', '{data.iloc[i][5]}')"
+# 	print(query)
+# 	cursor.execute(query)
+# db.commit()
+
 data = cursor.fetchall()
 
 print(data)
