@@ -4,7 +4,7 @@ from pandas import DataFrame
 
 data = pd.read_csv("info.csv")
 
-info = data.iloc(0)
+# info = data.iloc(0)
 
 # print(type(info))
 
