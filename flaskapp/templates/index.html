@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container-fluid text-center block-text" ,
+    style=" background-image:linear-gradient(to bottom, #17a2b8 , #005960);">
+    Welcome to the World of Ciphers!
+</div>
+<div class="container-fluid">
+    <div class="row block">
+        <button onclick="location.href='affine'"
+            class="col-sm-4 block1-color custom-button custom-button-1 block-text block-text-onhover-1">
+            Affine Cipher
+        </button>
+        <button onclick="location.href='atbash'"
+            class="col-sm-4 block2-color custom-button custom-button-2 block-text block-text-onhover-2">
+            Atbash Cipher
+        </button>
+        <button onclick="location.href='baconian'"
+            class="col-sm-4 block3-color custom-button custom-button-3 block-text block-text-onhover-3">
+            Baconian Cipher
+        </button>
+    </div>
+    <div class="row block">
+        <button onclick="location.href='caesar'"
+            class="col-sm-4 block4-color custom-button custom-button-4 block-text block-text-onhover-4">
+            Caesar Cipher
+        </button>
+        <button onclick="location.href='rot13'"
+            class="col-sm-4 block5-color custom-button custom-button-5 block-text block-text-onhover-5">
+            Rot13 Cipher
+        </button>
+        <button onclick="location.href='vigenere'"
+            class="col-sm-4 block6-color custom-button custom-button-6 block-text block-text-onhover-6">
+            Vigenère Cipher
+        </button>
+    </div>
+    <!-- <div class="row block">
+        <button onclick="location.href='#'"
+            class="col-sm-4 block1-color custom-button custom-button-1 block-text block-text-onhover-1">
+            Lorem, ipsum.
+        </button>
+        <button onclick="location.href='vigenere'"
+            class="col-sm-4 block2-color custom-button custom-button-2 block-text block-text-onhover-2">
+            Vigenère Cipher
+        </button>
+        <button onclick="location.href='xor'"
+            class="col-sm-4 block3-color custom-button custom-button-3 block-text block-text-onhover-3">
+            XOR Cipher
+        </button>
+    </div> -->
+</div>
+{% endblock content %}

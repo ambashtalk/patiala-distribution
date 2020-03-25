@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Crypt</title>
+    {% endif %}
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="{{ url_for('static',filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+</head>
+
+{% if output != "" %}
+    <body onLoad="window.scroll(0, 250)">
+{% else %}
+    <body>
+{% endif %}
+        <header class="container-fluid sticky-top bg-info">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <!-- Brand -->
+                <a class="navbar-brand" href="/home"><img class="logo"
+                        src="{{ url_for('static',filename='img/logo.png') }}"><span
+                        class="font-weight-bold">SIPHER</span></a>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item link-color-black">
+                            <a class="link-color-black-size-18 nav-link " style="font-size:18px;" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="link-color-black-size-18 nav-link" style=" font-size:18px"
+                                href="/contact-us">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="link-color-black-size-18 nav-link" style="font-size:18px" href="/about-us">About
+                                Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+
+        <footer class="container-fluid bg-info" style="font-family: sans-serif">
+            <div class="row">
+                <button class="col-sm-4 mt-5" onclick="" style="background: transparent; border: 0;">
+                    <div class="text-center font-weight-bold"><img class="logo"
+                            src="{{ url_for('static',filename='img/logo.png') }}"></div>
+                </button>
+                <div class="col-sm-8 pt-5">
+                    <div class="text-center font-weight-bold pb-3">More Information on Ciphers</div>
+                    <div class="row text-center p-1">
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Affine_cipher">Affine Cipher</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Atbash">Atbash Cipher</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Bacon%27s_cipher">Baconian Cipher</a>
+                        </div>
+                    </div>
+                    <div class="row text-center p-1">
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/ROT13">Rot13 Cipher</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Vigenère Cipher</a>
+                        </div>
+                    </div>
+                    <div class="row text-center p-1">
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/Polybius_square">Polybius Square Cipher</a>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="https://en.wikipedia.org/wiki/XOR_cipher">XOR Cipher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="copyright">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> | All rights reserved
+                </p>
+            </div>
+        </footer>
+
+        <script src="{{ url_for('static',filename='js/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/validate.js') }}"></script>
+    </body>
+
+</html>
