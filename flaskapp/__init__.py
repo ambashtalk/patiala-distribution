@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, request
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'somerandoxhex'
@@ -9,7 +9,19 @@ def home():
 
 @app.route('/Grocery', methods=['GET', 'POST'])
 def grocery():
-    return render_template('grocery.html', title='Grocery Shops')
+    areaList = ['Area 1', 'Area 2', 'Area 3', 'Area 4'] # from SQL QUERY for area
+    shops = []
+    operation = request.form.get('fetch')
+    area = request.form.get('area')
+    if operation == 'search_nearest':
+        #get nearest shops
+        shops = [('Name','Contact', 'Address'), ('Tuple', 'of', 'shop_details')] # from SQL query get nearest shops and send all details
+        pass
+    elif operation == 'search_area':
+        #get shows in the area specified
+        shops = [('Name','Contact', 'Address'), ('Tuple', 'of', 'shop_details')] # from SQL query get nearest shops and send all details
+        pass
+    return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])
 def Milk_Dairy():

@@ -1,16 +1,16 @@
-var x = document.getElementById("demo");
+var x = document.getElementById("output");
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    x.innerHTML = "Geolocation is not supported by this browser. (Need to do something about this)";
   }
 }
 
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+  "<br>Longitude: " + position.coords.longitude +"<br>(Need to do something about this. It remove the table)";
 }
 
 function showError(error) {

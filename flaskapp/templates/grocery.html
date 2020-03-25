@@ -6,21 +6,67 @@
     GROCERY SHOPS
 </div>
 <div class="container-fluid">
-    <div class="row ">
-        <div class="col-sm-12 bg-cipher1">
-            <div class="form-group btn-group">
+    <div class="row text-center ">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 border ">
+            <div class="btn-group py-5">
                 <!-- <label for="original-text text-white">Search for shops near my location:</label> -->
-                <button class="text-center">Search for shops near my location</button>
+                <button class="text-center btn-primary" value="search_nearest" name="fetch" onclick="getLocation()">Search for shops near my
+                    location</button>
             </div>
             <!-- <input class="input-lg" type="text" id="msg"> -->
             {% block radioOptions %} {% endblock radioOptions %}
             <div class="text-center text-white">
                 <h1>OR</h1>
             </div>
-            <div class="form-group">
-                <label for="output">Select Area </label>
+            <div class="py-5">
+                <label for="list">Search for shop in </label>
+                <select class="" id="list">
+                    {% for area in areaList %}
+                    <option class="" name="area" value="{{area}}">{{area}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <div class="pt-3">
+                    <button type="button" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
+                </div>
+            </div>
+            <div class="pb-3 px-1" id="output">
+                {% if shops != [] %}
+                <div class="text-center">
+                    <strong>OPEN SHOPS NEAR YOU.</strong>
+                </div>
+                <br>
+                <table class="d-table table-active table-bodered table-striped table-responsive">
+                    <colgroup>
+                        <col span="1" style="width: 25%;">
+                        <col span="1" style="width: 25%;">
+                        <col span="1" style="width: 50%;">
+                     </colgroup>
+                    <tr class="d-table-row">
+                        <th class="d-table-cell">Shop Name</th>
+                        <th class="d-table-cell">Contact</th>
+                        <th class="d-table-cell">Address</th>
+                    </tr>
+                    {% for name,contact,address in shops %}
+                    <tr class="d-table-row">
+                        <td class="d-table-cell">{{ name }}</td>
+                        <td class="d-table-cell">{{ contact }}</td>
+                        <td class="d-table-cell">{{ address }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                <div class="text-center">
+                    Check your search results here.
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
+<div>
+    <div class="col-sm-2"></div>
+    
 </div>
 {% endblock content %}
