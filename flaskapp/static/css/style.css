@@ -5,11 +5,11 @@
 /* small mobile :320px. */
 /* Large Mobile :480px. */
 /* 1. Theme default css */
-@import url("https://fonts.googleapis.com/css?family=Alata|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400,700,900&display=swap");
 /* line 5, ../../Arafath/CL/December/230. Portfolio/HTML/scss/theme-default.scss */
 body {
-  font-family: cursive, sans-serif,'Times New Roman', Times, serif;
-  font-weight: normal;
+  font-family:  'Times New Roman', Times, serif ;
+  font-weight: bolder;
   font-style: normal;
 }
 
