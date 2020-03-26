@@ -12,8 +12,8 @@ def home():
 @app.route('/Grocery', methods=['GET', 'POST'])
 def grocery():
     cur = Cursor()
-    latitude = None
-    longitude = None
+    latitude = ""
+    longitude = ""
     query = f'SELECT DISTINCT area FROM main'
     cur.execute(query)
     areaList = [x for x, in cur.fetchall()]
