@@ -19,10 +19,10 @@
                 <input class="form-control text-center py-2" type="text" id="latitude" name="latitude" placeholder="Laditude" value="{{ latitude }}" readonly required>
                 <input class="form-control text-center py-2" type="text" id="longitude" name="longitude" placeholder="Longitude" value="{{ longitude }}" readonly required>
                 <div class="container-fluid py-3">
-                    <button class="text-center btn btn-block btn-secondary" type="button" onclick="getLocation()">Get My Location</button>
+                    <button class="text-center btn btn-block btn-warning" type="button" onclick="getLocation()">Get My Location</button>
                     <br>
-                    <button class="text-center btn btn-block btn-primary" type="submit" name="fetch" value="search_nearest">
-                        Search for shops near my location
+                    <button class="text-center btn btn-block btn-danger" type="submit" name="fetch" value="search_nearest">
+                        List Shops Near My Location
                     </button>
                 </div>
             </form>
@@ -32,14 +32,14 @@
             <form class="py-5" method="POST">
                 <h3 for="list" class="">Search for shops in selected area</h3>
                 <select class="container-fluid" name="area" id="list" size="4">
-                    <option class="border-bottom wrap-text" value="">This is a very very very very very very very very very very long option</option>
                     {% for area in areaList %}
                     <option class="border-bottom wrap-text" value="{{area}}">{{area}}</option>
                     {% endfor %}
+                    </optgrp>
                 </select>
                 <br>
                 <div class="container-fluid pt-3">
-                    <button type="submit" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
+                    <button type="submit" class="text-center btn btn-block btn-danger" name="fetch" value="search_area">Fetch</button>
                 </div>
             </form>
             <div class="container-fluid pb-3 px-1" id="output">
