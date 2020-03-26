@@ -1,6 +1,6 @@
 function sendRequest() {
   $.ajax({
-    data: {job: "search_nearest"},
+    data: {job: "search_area"},
     type: "POST",
     success: function callback(){
       //ANY CODE IN SUCCESS

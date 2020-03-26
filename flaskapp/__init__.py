@@ -17,10 +17,10 @@ def grocery():
     # print(areaList)
     shops = []
     if request.method == 'POST':
-        operation = request.form['job']
-        print(operation)
         area = request.form.get('area')
         print(area)
+        operation = request.form['job']
+        print(operation)
         if operation == 'search_nearest':
             #get nearest shops
             latitude = request.form['latitude'];
