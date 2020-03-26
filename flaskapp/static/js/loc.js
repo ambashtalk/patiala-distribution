@@ -10,23 +10,15 @@
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
+    navigator.geolocation.getCurrentPosition(fillCordinates, showError);
   } else { 
    //
   }
 }
 
-function showPosition(position) {
-  let x = position.coords.latitude;
-  let y = position.coords.longitude;
-  // alert("Latitude" + x);
-  $.ajax({
-    data: { latitude: x, longitude: y, job: "search_nearest"},
-    type: "POST",
-    success: function callback(msg,data){
-      alert(data)
-    }});
-  // $.post({});
+function fillCordinates(position) {
+  document.getElementById("latitude").setAttribute("value", position.coords.latitude);
+  document.getElementById("longitude").setAttribute("value", position.coords.longitude);
 }
 
 function showError(error) {

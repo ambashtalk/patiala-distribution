@@ -3,6 +3,7 @@ from dbconnect import Cursor
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'somerandoxhex'
+# app.config['template_auto_reload'] = 2
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
@@ -18,28 +19,28 @@ def grocery():
     shops = []
     if request.method == 'POST':
         area = request.form.get('area')
-        print(area)
-        # operation = request.form['job']
+        # print(area)
         operation = request.form.get('fetch')
-        print(operation)
+        # print(operation)
         if operation == 'search_area':
             query = f'SELECT shop, contact, area FROM main where area="{area}"'
             cur.execute(query)
             shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
         # elif operation == 'search_nearest':
-        elif request.form['job'] == 'search_nearest':
+        elif operation == 'search_nearest':
             #get nearest shops
-            latitude = request.form['latitude'];
-            longitude = request.form['longitude']
-            print(latitude, longitude)
+            latitude = request.form.get("latitude")
+            longitude = request.form.get("longitude")
+            # print(latitude, longitude)
             query = 'SELECT shop, contact, area FROM main'
-            print("after Query")
+            # print("after Query")
             cur.execute(query)
-            print("after execute")
+            # print("after execute")
+            # areaList = []
             shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
     cur.close()
-    print("before render")
-    print(shops)
+    # print("before render")
+    # print(shops)
     return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])
