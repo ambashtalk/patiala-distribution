@@ -10,8 +10,8 @@
         <div class="col-sm-2 bg-cipher1"></div>
         <div class="col-sm-8">
             <form class="py-3" action="" method="POST">
-                <input class="form-control text-center py-2" type="text" id="latitude" placeholder="Laditude" value="" disabled>
-                <input class="form-control text-center py-2" type="text" id="longitude" placeholder="Longitude" value="" disabled>
+                <input class="form-control text-center py-2" type="text" id="latitude" placeholder="Laditude" value="{{ latitude }}" disabled>
+                <input class="form-control text-center py-2" type="text" id="longitude" placeholder="Longitude" value="{{ longitude }}" disabled>
                 <div class="btn-group py-3">
                     <button class="text-center btn btn-secondary" type="button" >Get my Cordinates</button>
                     <button class="text-center btn btn-primary" type="submit" name="fetch" onclick="getLocation()" value="search_nearest">

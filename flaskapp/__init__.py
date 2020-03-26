@@ -12,6 +12,8 @@ def home():
 @app.route('/Grocery', methods=['GET', 'POST'])
 def grocery():
     cur = Cursor()
+    latitude = None
+    longitude = None
     query = f'SELECT DISTINCT area FROM main'
     cur.execute(query)
     areaList = [x for x, in cur.fetchall()]
@@ -41,7 +43,7 @@ def grocery():
     cur.close()
     # print("before render")
     # print(shops)
-    return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops)
+    return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops, latitude=latitude, longitude=longitude)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])
 def Milk_Dairy():
