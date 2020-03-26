@@ -1,3 +1,13 @@
+function sendRequest() {
+  $.ajax({
+    data: {job: "search_nearest"},
+    type: "POST",
+    success: function callback(){
+      //ANY CODE IN SUCCESS
+      // alert("Data sent to python")
+    }});
+}
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -9,13 +19,13 @@ function getLocation() {
 function showPosition(position) {
   let x = position.coords.latitude;
   let y = position.coords.longitude;
-  alert("Latitude" + x);
+  // alert("Latitude" + x);
   $.ajax({
     data: { latitude: x, longitude: y, job: "search_nearest"},
     type: "POST",
     success: function callback(){
       //ANY CODE IN SUCCESS
-      alert("Data sent to python")
+      // alert("Data sent to python")
     }});
   // $.post({});
 }

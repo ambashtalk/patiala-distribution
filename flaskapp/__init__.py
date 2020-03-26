@@ -17,16 +17,15 @@ def grocery():
     # print(areaList)
     shops = []
     if request.method == 'POST':
-        operation = request.form.get('fetch')
+        operation = request.form['job']
         print(operation)
         area = request.form.get('area')
         print(area)
         if operation == 'search_nearest':
-            print("In nearest")
-            data = request.form['job']
-            print(data)
-        if operation == 'search_nearest':
             #get nearest shops
+            latitude = request.form['latitude'];
+            longitude = request.form['longitude']
+            print(latitude, longitude)
             query = 'SELECT shop, contact, area FROM main'
             cur.execute(query)
             shops = [(name,contact,area) for name,contact,area in cur.fetchall()]

@@ -11,7 +11,7 @@
         <div class="col-sm-8">
             <div class="btn-group py-5">
                 <!-- <label for="original-text text-white">Search for shops near my location:</label> -->
-                <button class="text-center btn btn-primary" type="submit" value="search_nearest" name="fetch"
+                <button class="text-center btn btn-primary" type="submit"
                     onclick="getLocation()">Search for shops near my location</button>
             </div>
             <!-- <input class="input-lg" type="text" id="msg"> -->
@@ -29,7 +29,7 @@
                 </select>
                 <br>
                 <div class="container-fluid pt-3">
-                    <button type="submit" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
+                    <button type="submit" class="btn btn-primary" onclick="sendRequest()">Fetch</button>
                 </div>
             </form>
             <div class="container-fluid pb-3 px-1" id="output">
