@@ -18,9 +18,13 @@ def grocery():
     shops = []
     if request.method == 'POST':
         operation = request.form.get('fetch')
-        # print(operation)
+        print(operation)
         area = request.form.get('area')
-        # print(area)
+        print(area)
+        if operation == 'search_nearest':
+            print("In nearest")
+            data = request.form['job']
+            print(data)
         if operation == 'search_nearest':
             #get nearest shops
             query = 'SELECT shop, contact, area FROM main'
