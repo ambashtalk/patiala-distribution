@@ -47,17 +47,17 @@
                         </colgroup>
                         <thead>
                             <tr class="d-table-row border-bottom">
-                                <th class="d-table-cell">Shop Name</th>
-                                <th class="d-table-cell">Contact</th>
-                                <th class="d-table-cell">Area</th>
+                                <th class="d-table-cell border-left">Shop Name</th>
+                                <th class="d-table-cell border-left">Contact</th>
+                                <th class="d-table-cell border-left">Area</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for name,contact,address in shops %}
                             <tr class="d-table-row border-bottom">
-                                <td class="d-table-cell">{{ name }}</td>
-                                <td class="d-table-cell">{{ contact }}</td>
-                                <td class="d-table-cell">{{ address }}</td>
+                                <td class="d-table-cell border-left">{{ name }}</td>
+                                <td class="d-table-cell border-left">{{ contact }}</td>
+                                <td class="d-table-cell border-left">{{ address }}</td>
                             </tr>
                         </tbody>
                         {% endfor %}
