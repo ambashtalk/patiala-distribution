@@ -31,7 +31,7 @@ def grocery():
             #get nearest shops
             latitude = request.form.get("latitude")
             longitude = request.form.get("longitude")
-            # print(latitude, longitude)
+            print(latitude, longitude)
             query = 'SELECT shop, contact, area FROM main'
             # print("after Query")
             cur.execute(query)
