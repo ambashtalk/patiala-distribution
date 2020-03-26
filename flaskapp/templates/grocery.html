@@ -32,14 +32,14 @@
                     <button type="submit" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
                 </div>
             </form>
-            <div class="container-fluid justify-content-auto pb-3 px-1" id="output">
+            <div class="container-fluid mx-auto pb-3 px-1" id="output">
                 {% if shops != [] %}
                 <div class="text-center">
                     <strong>SHOPS NEAR YOU.</strong>
                 </div>
                 <br>
                 <div class=" container-fluid table-responsive justify-content-auto">
-                    <table class="d-table table-bodered text-center table-hover border">
+                    <table class="d-table table-bodered text-center table-hover border mx-auto">
                         <colgroup>
                             <col span="1" style="width: 30%;">
                             <col span="1" style="width: 20%;">
@@ -47,17 +47,17 @@
                         </colgroup>
                         <thead>
                             <tr class="d-table-row border-bottom">
-                                <th class="d-table-cell border-left">Shop Name</th>
-                                <th class="d-table-cell border-left">Contact</th>
-                                <th class="d-table-cell border-left">Area</th>
+                                <th class="d-table-cell">Shop Name</th>
+                                <th class="d-table-cell">Contact</th>
+                                <th class="d-table-cell">Area</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for name,contact,address in shops %}
                             <tr class="d-table-row border-bottom">
-                                <td class="d-table-cell border-left">{{ name }}</td>
-                                <td class="d-table-cell border-left">{{ contact }}</td>
-                                <td class="d-table-cell border-left">{{ address }}</td>
+                                <td class="d-table-cell">{{ name }}</td>
+                                <td class="d-table-cell">{{ contact }}</td>
+                                <td class="d-table-cell">{{ address }}</td>
                             </tr>
                         </tbody>
                         {% endfor %}
