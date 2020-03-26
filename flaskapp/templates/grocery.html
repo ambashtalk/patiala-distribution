@@ -9,9 +9,9 @@
     <div class="row text-center">
         <div class="col-sm-2 bg-cipher1"></div>
         <div class="col-sm-8">
-            <form class="py-3" action="" method="POST">
-                <input class="form-control text-center py-2" type="text" id="latitude" name="latitude" placeholder="Laditude" value="{{ latitude }}" disabled>
-                <input class="form-control text-center py-2" type="text" id="longitude" name="longitude" placeholder="Longitude" value="{{ longitude }}" disabled>
+            <form class="py-3" method="POST">
+                <input class="form-control text-center py-2" type="text" id="latitude" name="latitude" placeholder="Laditude" value="{{ latitude }}" readonly required>
+                <input class="form-control text-center py-2" type="text" id="longitude" name="longitude" placeholder="Longitude" value="{{ longitude }}" readonly required>
                 <div class="btn-group py-3">
                     <button class="text-center btn btn-secondary" type="button" onclick="getLocation()">Get my Cordinates</button>
                     <button class="text-center btn btn-primary" type="submit" name="fetch" value="search_nearest">
@@ -36,6 +36,10 @@
                 </div>
             </form>
             <div class="container-fluid pb-3 px-1" id="output">
+                {% if msg != "" %}
+                <script>alert("{{msg}}")</script>
+                {% endif %}
+
                 {% if shops != [] %}
                 <div class="text-center">
                     <h3 class="">Shops Near You</h3>

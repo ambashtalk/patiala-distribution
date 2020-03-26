@@ -12,6 +12,7 @@ def home():
 @app.route('/Grocery', methods=['GET', 'POST'])
 def grocery():
     cur = Cursor()
+    msg = ""
     latitude = ""
     longitude = ""
     query = f'SELECT DISTINCT area FROM main ORDER BY area'
@@ -33,8 +34,12 @@ def grocery():
             #get nearest shops
             latitude = request.form.get("latitude")
             longitude = request.form.get("longitude")
+            if latitude == "" or longitude == "":
+                msg = "Please click on 'Get my location' first"
+            else:
+                query = 'SELECT shop, contact, area FROM main'
+
             print(latitude, longitude)
-            query = 'SELECT shop, contact, area FROM main'
             # print("after Query")
             cur.execute(query)
             # print("after execute")
@@ -43,7 +48,7 @@ def grocery():
     cur.close()
     # print("before render")
     # print(shops)
-    return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops, latitude=latitude, longitude=longitude)
+    return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops, latitude=latitude, longitude=longitude, msg=msg)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])
 def Milk_Dairy():
