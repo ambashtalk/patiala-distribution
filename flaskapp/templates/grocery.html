@@ -17,10 +17,10 @@
             <!-- <input class="input-lg" type="text" id="msg"> -->
             {% block radioOptions %} {% endblock radioOptions %}
             <div class="text-center text-white">
-                <h1 class="text-white">-- OR --</h1>
+                <h1 class="text-white">OR</h1>
             </div>
             <form class="py-5" method="POST">
-                <h3 for="list" class="text-white">Search for shops in selected area </h3>
+                <h3 for="list" class="text-white">Search for shops in selected area</h3>
                 <select class="container-fluid" name="area" id="list" size="4">
                     <option class="border-bottom wrap-text" value="">This is a very very very very very very very very very very long option</option>
                     {% for area in areaList %}
@@ -35,7 +35,7 @@
             <div class="container-fluid pb-3 px-1" id="output">
                 {% if shops != [] %}
                 <div class="text-center text-white">
-                    <span>Shops Near You</span>
+                    <h2>Shops Near You</h2>
                 </div>
                 <br>
                 <div class=" container-fluid table-responsive">
@@ -64,8 +64,8 @@
                     </table>
                 </div>
                 {% else %}
-                <div class="text-center">
-                    Check your search results here.
+                <div class="text-center text-white">
+                    <h2>Check your search results here</h2>
                 </div>
                 {% endif %}
             </div>
