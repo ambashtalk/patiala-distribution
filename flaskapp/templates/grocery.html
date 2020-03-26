@@ -5,9 +5,9 @@
     style="background-image:linear-gradient(to bottom, #17a2b8 , #005960);">
     Grocery Shops
 </div>
-<div class="container-fluid" style="background-color: #17a2b8;">
-    <div class="row text-center bg-cipher1">
-        <div class="col-sm-2"></div>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-sm-2 bg-cipher1"></div>
         <div class="col-sm-8">
             <div class="btn-group py-5">
                 <!-- <label for="original-text text-white">Search for shops near my location:</label> -->
@@ -16,11 +16,11 @@
             </div>
             <!-- <input class="input-lg" type="text" id="msg"> -->
             {% block radioOptions %} {% endblock radioOptions %}
-            <div class="text-center text-white">
-                <h1 class="text-white">OR</h1>
+            <div class="text-center">
+                <h1 class="">OR</h1>
             </div>
             <form class="py-5" method="POST">
-                <h3 for="list" class="text-white">Search for shops in selected area</h3>
+                <h3 for="list" class="">Search for shops in selected area</h3>
                 <select class="container-fluid" name="area" id="list" size="4">
                     <option class="border-bottom wrap-text" value="">This is a very very very very very very very very very very long option</option>
                     {% for area in areaList %}
@@ -34,8 +34,8 @@
             </form>
             <div class="container-fluid pb-3 px-1" id="output">
                 {% if shops != [] %}
-                <div class="text-center text-white">
-                    <h3>Shops Near You</h3>
+                <div class="text-center">
+                    <h3 class="">Shops Near You</h3>
                 </div>
                 <br>
                 <div class=" container-fluid table-responsive">
@@ -64,8 +64,8 @@
                     </table>
                 </div>
                 {% else %}
-                <div class="text-center text-white">
-                    <h3>Check your search results here</h3>
+                <div class="text-center">
+                    <h3 class="text-white">Check your search results here</h3>
                 </div>
                 {% endif %}
             </div>
