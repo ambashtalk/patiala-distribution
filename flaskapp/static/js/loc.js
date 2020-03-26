@@ -1,12 +1,12 @@
-function sendRequest() {
-  $.ajax({
-    data: {job: "search_area"},
-    type: "POST",
-    success: function callback(){
-      //ANY CODE IN SUCCESS
-      // alert("Data sent to python")
-    }});
-}
+// function sendRequest() {
+//   $.ajax({
+//     data: {job: "search_area"},
+//     type: "POST",
+//     success: function callback(){
+//       //ANY CODE IN SUCCESS
+//       // alert("Data sent to python")
+//     }});
+// }
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -23,9 +23,8 @@ function showPosition(position) {
   $.ajax({
     data: { latitude: x, longitude: y, job: "search_nearest"},
     type: "POST",
-    success: function callback(){
-      //ANY CODE IN SUCCESS
-      // alert("Data sent to python")
+    success: function callback(msg,data){
+      alert(data)
     }});
   // $.post({});
 }

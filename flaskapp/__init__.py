@@ -19,23 +19,27 @@ def grocery():
     if request.method == 'POST':
         area = request.form.get('area')
         print(area)
-        operation = request.form['job']
+        # operation = request.form['job']
+        operation = request.form.get('fetch')
         print(operation)
-        if operation == 'search_nearest':
+        if operation == 'search_area':
+            query = f'SELECT shop, contact, area FROM main where area="{area}"'
+            cur.execute(query)
+            shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
+        # elif operation == 'search_nearest':
+        elif request.form['job'] == 'search_nearest':
             #get nearest shops
             latitude = request.form['latitude'];
             longitude = request.form['longitude']
             print(latitude, longitude)
             query = 'SELECT shop, contact, area FROM main'
+            print("after Query")
             cur.execute(query)
+            print("after execute")
             shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
-            pass
-        elif operation == 'search_area':
-            query = f'SELECT shop, contact, area FROM main where area="{area}"'
-            cur.execute(query)
-            shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
-            pass
-        cur.close()
+    cur.close()
+    print("before render")
+    print(shops)
     return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])
