@@ -11,7 +11,7 @@
         <div class="col-sm-8">
             <div class="btn-group py-5">
                 <!-- <label for="original-text text-white">Search for shops near my location:</label> -->
-                <button class="text-center btn-primary" type="submit" value="search_nearest" name="fetch"
+                <button class="text-center btn btn-primary" type="submit" value="search_nearest" name="fetch"
                     onclick="getLocation()">Search for shops near my location</button>
             </div>
             <!-- <input class="input-lg" type="text" id="msg"> -->
@@ -35,7 +35,7 @@
             <div class="container-fluid pb-3 px-1" id="output">
                 {% if shops != [] %}
                 <div class="text-center text-white">
-                    <h2>Shops Near You</h2>
+                    <h3>Shops Near You</h3>
                 </div>
                 <br>
                 <div class=" container-fluid table-responsive">
@@ -65,7 +65,7 @@
                 </div>
                 {% else %}
                 <div class="text-center text-white">
-                    <h2>Check your search results here</h2>
+                    <h3>Check your search results here</h3>
                 </div>
                 {% endif %}
             </div>
