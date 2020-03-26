@@ -1,11 +1,14 @@
 import pymysql
 
-db = pymysql.connect("remotemysql.com","P8fLcTUs68","JOx0xeTV8S","P8fLcTUs68",3306)
+def Cursor():
+    db = pymysql.connect("remotemysql.com","P8fLcTUs68","JOx0xeTV8S","P8fLcTUs68",3306)
+    cursor = db.cursor()
+    return cursor
 
 # prepare a cursor object using cursor() method
-cursor = db.cursor()
+# cursor = db.cursor()
 
-cursor.execute("DESC main")
+# cursor.execute("DESC main")
 
 # # Uploading to database
 # data = pd.read_csv("info.csv")
@@ -15,7 +18,6 @@ cursor.execute("DESC main")
 # 	cursor.execute(query)
 # db.commit()
 
-data = cursor.fetchall()
-
-print(data)
+# data = cursor.fetchall()
+# print(data)
 
