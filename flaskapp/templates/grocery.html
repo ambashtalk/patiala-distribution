@@ -20,10 +20,11 @@
                 <h1>OR</h1>
             </div>
             <form class="py-5" method="POST">
-                <label for="list">Search for shop in </label>
-                <select class="dropdown" name="area" id="list">
+                <h3 for="list">Search for shops in selected area </h3>
+                <select class="container-fluid" name="area" id="list" size="4">
+                    <option class="border border-left-0 border-right-0 wrap-text" value="">This is a very very very very very very very very very very long option</option>
                     {% for area in areaList %}
-                    <option class="" value="{{area}}">{{area}}</option>
+                    <option class="border border-left-0 border-right-0 wrap-text" value="{{area}}">{{area}}</option>
                     {% endfor %}
                 </select>
                 <br>

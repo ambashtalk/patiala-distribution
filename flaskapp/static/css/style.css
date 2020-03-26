@@ -7256,3 +7256,8 @@ form-control-dropdown {
   border-radius: 20px;
   background-color: rgba(0,89,96,0.5);
 }
+
+.wrap-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
