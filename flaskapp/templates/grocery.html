@@ -22,9 +22,9 @@
             <form class="py-5" method="POST">
                 <h3 for="list">Search for shops in selected area </h3>
                 <select class="container-fluid" name="area" id="list" size="4">
-                    <option class="border border-left-0 border-right-0 wrap-text" value="">This is a very very very very very very very very very very long option</option>
+                    <option class="border-bottom wrap-text" value="">This is a very very very very very very very very very very long option</option>
                     {% for area in areaList %}
-                    <option class="border border-left-0 border-right-0 wrap-text" value="{{area}}">{{area}}</option>
+                    <option class="border-bottom wrap-text" value="{{area}}">{{area}}</option>
                     {% endfor %}
                 </select>
                 <br>
@@ -39,7 +39,7 @@
                 </div>
                 <br>
                 <div class=" container-fluid table-responsive justify-content-auto">
-                    <table class="d-table table-active table-bodered table-striped  text-center">
+                    <table class="d-table table-bodered text-center table-hover">
                         <colgroup>
                             <col span="1" style="width: 30%;">
                             <col span="1" style="width: 20%;">
@@ -47,7 +47,7 @@
                             <col span="1" style="width: 10%;">
                         </colgroup>
                         <thead>
-                            <tr class="d-table-row">
+                            <tr class="d-table-row border-bottom">
                                 <th class="d-table-cell">Shop Name</th>
                                 <th class="d-table-cell">Contact</th>
                                 <th class="d-table-cell">Address</th>
@@ -56,7 +56,7 @@
                         </thead>
                         <tbody>
                             {% for name,contact,address, category in shops %}
-                            <tr class="d-table-row">
+                            <tr class="d-table-row border-bottom">
                                 <td class="d-table-cell">{{ name }}</td>
                                 <td class="d-table-cell">{{ contact }}</td>
                                 <td class="d-table-cell">{{ address }}</td>
