@@ -35,15 +35,17 @@ def grocery():
             latitude = request.form.get("latitude")
             longitude = request.form.get("longitude")
             if latitude == "" or longitude == "":
-                msg = "Please click on 'Get my location' first"
+                msg = 'Please click on "Get my location" first'
             else:
                 query = 'SELECT shop, contact, area FROM main'
-                # print("after Query")
                 cur.execute(query)
-                # print("after execute")
-                # areaList = []
                 shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
+
             print(latitude, longitude)
+            # print("after Query")
+            # print("after execute")
+            # areaList = []
+            
     cur.close()
     # print("before render")
     # print(shops)

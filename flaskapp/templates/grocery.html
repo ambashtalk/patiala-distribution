@@ -18,6 +18,12 @@
                         Search for shops near my location
                     </button>
                 </div>
+                {% if msg != "" %}
+                <div class="alert alert-danger">
+                    <h4>{{msg}}</h4>
+                </div>
+                <!-- <script>alert("{{msg}}")</script> -->
+                {% endif %}
             </form>
             <div class="text-center pt-4">
                 <h1 class="">OR</h1>
@@ -36,10 +42,6 @@
                 </div>
             </form>
             <div class="container-fluid pb-3 px-1" id="output">
-                {% if msg != "" %}
-                <script>alert("{{msg}}")</script>
-                {% endif %}
-
                 {% if shops != [] %}
                 <div class="text-center">
                     <h3 class="">Shops Near You</h3>
