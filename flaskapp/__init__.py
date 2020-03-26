@@ -16,22 +16,23 @@ def grocery():
     areaList = [x for x, in cur.fetchall()]
     # print(areaList)
     shops = []
-    operation = request.form.get('fetch')
-    print(operation)
-    area = request.form.get('area')
-    print(area)
-    if operation == 'search_nearest':
-        #get nearest shops
-        query = 'SELECT shop, contact, area, category FROM main'
-        cur.execute(query)
-        shops = [(name,contact,area,category) for name,contact,area,category in cur.fetchall()]
-        pass
-    elif operation == 'search_area':
-        query = f'SELECT shop, contact, area, category FROM main where area={area}'
-        cur.execute(query)
-        shops = [(name,contact,area,category) for name,contact,area,category in cur.fetchall()]
-        pass
-    cur.close()
+    if request.method == 'POST':
+        operation = request.form.get('fetch')
+        # print(operation)
+        area = request.form.get('area')
+        # print(area)
+        if operation == 'search_nearest':
+            #get nearest shops
+            query = 'SELECT shop, contact, area, category FROM main'
+            cur.execute(query)
+            shops = [(name,contact,area,category) for name,contact,area,category in cur.fetchall()]
+            pass
+        elif operation == 'search_area':
+            query = f'SELECT shop, contact, area, category FROM main where area="{area}"'
+            cur.execute(query)
+            shops = [(name,contact,area,category) for name,contact,area,category in cur.fetchall()]
+            pass
+        cur.close()
     return render_template('grocery.html', title='Grocery Shops', areaList = areaList, shops=shops)
 
 @app.route('/Milk_Dairy', methods=['GET', 'POST'])

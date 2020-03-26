@@ -11,54 +11,60 @@
         <div class="col-sm-8 border ">
             <div class="btn-group py-5">
                 <!-- <label for="original-text text-white">Search for shops near my location:</label> -->
-                <button class="text-center btn-primary" value="search_nearest" name="fetch" onclick="getLocation()">Search for shops near my
-                    location</button>
+                <button class="text-center btn-primary" type="submit" value="search_nearest" name="fetch"
+                    onclick="getLocation()">Search for shops near my location</button>
             </div>
             <!-- <input class="input-lg" type="text" id="msg"> -->
             {% block radioOptions %} {% endblock radioOptions %}
             <div class="text-center text-white">
                 <h1>OR</h1>
             </div>
-            <div class="py-5">
+            <form class="py-5" method="POST">
                 <label for="list">Search for shop in </label>
-                <select class="" id="list">
+                <select class="dropdown" name="area" id="list">
                     {% for area in areaList %}
-                    <option class="" name="area" value="{{area}}">{{area}}</option>
+                    <option class="" value="{{area}}">{{area}}</option>
                     {% endfor %}
                 </select>
                 <br>
-                <div class="pt-3">
-                    <button type="button" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
+                <div class="container-fluid pt-3">
+                    <button type="submit" class="btn btn-primary" name="fetch" value="search_area">Fetch</button>
                 </div>
-            </div>
-            <div class="pb-3 px-1" id="output">
+            </form>
+            <div class="container-fluid justify-content-auto pb-3 px-1" id="output">
                 {% if shops != [] %}
                 <div class="text-center">
                     <strong>OPEN SHOPS NEAR YOU.</strong>
                 </div>
                 <br>
-                <table class="d-table table-active table-bodered table-striped table-responsive">
-                    <colgroup>
-                        <col span="1" style="width: 20%;">
-                        <col span="1" style="width: 20%;">
-                        <col span="1" style="width: 50%;">
-                        <col span="1" style="width: 10%;">
-                     </colgroup>
-                    <tr class="d-table-row">
-                        <th class="d-table-cell">Shop Name</th>
-                        <th class="d-table-cell">Contact</th>
-                        <th class="d-table-cell">Address</th>
-                        <th class="d-table-cell">Category</th>
-                    </tr>
-                    {% for name,contact,address, category in shops %}
-                    <tr class="d-table-row">
-                        <td class="d-table-cell">{{ name }}</td>
-                        <td class="d-table-cell">{{ contact }}</td>
-                        <td class="d-table-cell">{{ address }}</td>
-                        <td class="d-table-cell">{{ category }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div class=" container-fluid table-responsive justify-content-auto">
+                    <table class="d-table table-active table-bodered table-striped  text-center">
+                        <colgroup>
+                            <col span="1" style="width: 30%;">
+                            <col span="1" style="width: 20%;">
+                            <col span="1" style="width: 40%;">
+                            <col span="1" style="width: 10%;">
+                        </colgroup>
+                        <thead>
+                            <tr class="d-table-row">
+                                <th class="d-table-cell">Shop Name</th>
+                                <th class="d-table-cell">Contact</th>
+                                <th class="d-table-cell">Address</th>
+                                <th class="d-table-cell">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for name,contact,address, category in shops %}
+                            <tr class="d-table-row">
+                                <td class="d-table-cell">{{ name }}</td>
+                                <td class="d-table-cell">{{ contact }}</td>
+                                <td class="d-table-cell">{{ address }}</td>
+                                <td class="d-table-cell">{{ category }}</td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
                 {% else %}
                 <div class="text-center">
                     Check your search results here.
@@ -70,6 +76,6 @@
 </div>
 <div>
     <div class="col-sm-2"></div>
-    
+
 </div>
 {% endblock content %}
