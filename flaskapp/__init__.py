@@ -14,7 +14,7 @@ def grocery():
     cur = Cursor()
     latitude = ""
     longitude = ""
-    query = f'SELECT DISTINCT area FROM main'
+    query = f'SELECT DISTINCT area FROM main ORDER BY area'
     cur.execute(query)
     areaList = [x for x, in cur.fetchall()]
     # print(areaList)
