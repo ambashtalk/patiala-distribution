@@ -1,4 +1,5 @@
 import pymysql
+import pandas as pd
 
 def Cursor():
     db = pymysql.connect("remotemysql.com","P8fLcTUs68","JOx0xeTV8S","P8fLcTUs68",3306)

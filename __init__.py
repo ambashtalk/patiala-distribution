@@ -1,5 +1,13 @@
 from flask import Flask, render_template, request, url_for, request
-from dbconnect import Cursor
+#from dbconnect import Cursor
+
+import pymysql
+#import pandas as pd
+
+def Cursor():
+    db = pymysql.connect("remotemysql.com","P8fLcTUs68","JOx0xeTV8S","P8fLcTUs68",3306)
+    cursor = db.cursor()
+    return cursor
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'somerandoxhex'
