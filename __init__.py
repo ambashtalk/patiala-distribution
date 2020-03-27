@@ -68,9 +68,10 @@ def grocery():
             else:
                 query = 'SELECT shop, contact, area, lat, lon FROM main WHERE category="Groceries"'
                 cur.execute(query)
-                res = [(name,contact,area,lat,lon) for name,contact,area,lat,lon in cur.fetchall()]
-                threshold_radius = 0.7 #units in Kilometer
-                shops = [(x[0],x[1],x[2]) for x in res if distance(latitude, x[3], longitude, x[4]) <= threshold_radius]
+                res = [(name,contact,area, distance(latitude, lat, longitude, lon)) for name,contact,area,lat,lon in cur.fetchall()]
+                # threshold_radius = 0.7 #units in Kilometer
+                res.sort(key=lambda x: x[3])
+                shops = [(name,contact,area) for name,contact,area,dist in res[:5]]
                 if shops == []:
                     msg = "NotFound"
                 else:
