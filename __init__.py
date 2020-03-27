@@ -9,6 +9,27 @@ def Cursor():
     cursor = db.cursor()
     return cursor
 
+from math import radians, cos, sin, asin, sqrt 
+
+def distance(lat1, lat2, lon1, lon2): 
+	lon1 = radians(float(lon1)) 
+	lon2 = radians(float(lon2)) 
+	lat1 = radians(float(lat1)) 
+	lat2 = radians(float(lat2)) 
+	
+	# Haversine formula 
+	dlon = lon2 - lon1 
+	dlat = lat2 - lat1 
+	a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+
+	c = 2 * asin(sqrt(a)) 
+	
+	# Radius of earth in kilometers. Use 3956 for miles 
+	r = 6371
+	
+	# calculate the result 
+	return(c * r) 
+
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'somerandoxhex'
 # app.config['template_auto_reload'] = 2
@@ -34,7 +55,7 @@ def grocery():
         operation = request.form.get('fetch')
         # print(operation)
         if operation == 'search_area':
-            query = f'SELECT shop, contact, area FROM main where area="{area}"'
+            query = f'SELECT shop, contact, area FROM main where category="Groceries" AND area="{area}"'
             cur.execute(query)
             shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
         # elif operation == 'search_nearest':
@@ -45,11 +66,17 @@ def grocery():
             if latitude == "" or longitude == "":
                 msg = "Please click on 'Get My Location' first"
             else:
-                query = 'SELECT shop, contact, area FROM main'
+                query = 'SELECT shop, contact, area, lat, lon FROM main WHERE category="Groceries"'
                 cur.execute(query)
-                shops = [(name,contact,area) for name,contact,area in cur.fetchall()]
+                res = [(name,contact,area,lat,lon) for name,contact,area,lat,lon in cur.fetchall()]
+                threshold_radius = 0.7 #units in Kilometer
+                shops = [(x[0],x[1],x[2]) for x in res if distance(latitude, x[3], longitude, x[4]) <= threshold_radius]
+                if shops == []:
+                    msg = "NotFound"
+                else:
+                    msg = "Success"
 
-            print(latitude, longitude)
+            # print(latitude, longitude)
             # print("after Query")
             # print("after execute")
             # areaList = []
